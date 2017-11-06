@@ -23,9 +23,10 @@ function gmapcn_shortcode( $atts, $content = null ) {
 
 	$iw_content = wp_slash( str_replace( array( "\r\n", "\r", "\n" ), ' ', trim( $content ) ) );
 	$api_key    = get_option( 'gmapcn_api_key' );
-	$html       = require_once __DIR__ . '/page_script.php';
-
-	return $html;
+	
+	require_once __DIR__ . '/page_script.php';
+	
+	return ob_get_clean();
 }
 
 function gmapcn_create_menu() {
